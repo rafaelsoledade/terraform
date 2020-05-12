@@ -1,22 +1,10 @@
-provider "aws" {
-  version = "2.33.0"
-
-  region = var.aws_region
+provider "azurerm" {
+  # The "feature" block is required for AzureRM provider 2.x. 
+  # If you are using version 1.x, the "features" block is not allowed.
+  version = "~>2.0"
+  features {}
 }
-
-resource "aws_dynamodb_table" "tfc_example_table" {
-  name = var.db_table_name
-
-  read_capacity  = var.db_read_capacity
-  write_capacity = var.db_write_capacity
-  hash_key       = "UUID"
-
-  attribute {
-    name = "UUID"
-    type = "S"
-  }
-
-  tags = {
-    user_name = var.tag_user_name
-  }
+resource "azurerm_resource_group" "rg" {
+        name = "testResourceGroup"
+        location = "westus"
 }
