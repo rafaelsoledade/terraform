@@ -14,7 +14,7 @@ variable "resource_group_name" {
   description = "The Resource Group under which the service bus is created"
   type    = string
   #default = "VER_AZURE_DO_BANCO"
-  default="testResourceGroup"
+  default="rg"
 }
 
 variable "servicebus_resource_name" {
