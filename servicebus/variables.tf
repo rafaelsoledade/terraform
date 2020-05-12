@@ -1,29 +1,11 @@
-variable "azure_sb_region" {
+variable "azure_region" {
+  description = "The Azure Region in which all resources in this example should be created."
   type    = string
   default = "westus"
 }
 
-variable "sb_name" {
-  type    = string
-  default = "exampleServiceBus"
-}
-
-variable "sbt_name" {
-  type    = string
-  default = "exampleTopic"
-}
-
-variable "subs_name" {
-  type    = string
-  default = "exampleSubscription"
-}
-
-variable "resourcegroup_number" {
-  type    = string
-  default = "02"
-}
-
 variable "resource_env" {
+  description = "The environment prefix which should be used for all resources"
   type    = string
-  default = "SIT"
+  default = "DEV"
 }
