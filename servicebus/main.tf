@@ -3,13 +3,6 @@ provider "azurerm" {
   features {}
 }
 
-# Creating a Resource Group
-#resource "azurerm_resource_group" "rg" {
-#        name = "testServiceGroup"
-#        location = "${var.azure_region}"
-#}
-
-
 # Creating a Service Bus
 resource "azurerm_servicebus_namespace" "${var.servicebus_resource_name}" {
   name                = "${var.servicebus_resource_name}"
