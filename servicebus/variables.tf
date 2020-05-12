@@ -23,3 +23,10 @@ variable "servicebus_resource_name" {
   #default = "VER_AZURE_DO_BANCO"
   default="testServiceBus"
 }
+
+variable "sbt_resource_name" {
+  description = "The Topic under which the subscriptions will be created"
+  type    = string
+  #default = "VER_AZURE_DO_BANCO"
+  default="testSbt"
+}
