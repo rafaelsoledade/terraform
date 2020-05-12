@@ -9,3 +9,15 @@ variable "resource_env" {
   type    = string
   default = "DEV"
 }
+
+variable "resource_group_name" {
+  description = "The Resource Group under which the service bus is created"
+  type    = string
+  default = "VER_AZURE_DO_BANCO"
+}
+
+variable "servicebus_resource_name" {
+  description = "The service bus under which the topics and subscriptions will be created"
+  type    = string
+  default = "VER_AZURE_DO_BANCO"
+}
