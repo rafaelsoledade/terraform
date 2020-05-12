@@ -2,8 +2,8 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "example" {
-  name     = "testing-resource-group"
-  location = "westus"
+# Creating a Resource Group
+resource "azurerm_resource_group" "resourceGroup" {
+        name = "testServiceGroup"
+        location = "westus"
 }
-
