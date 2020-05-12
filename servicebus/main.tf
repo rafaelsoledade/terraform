@@ -1,11 +1,9 @@
-# Configure the Azure Provider
 provider "azurerm" {
-  # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
-  version = "~> 1.44"
+  features {}
 }
 
 # Create a resource group
-resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
+resource "azurerm_resource_group" "exampleRg" {
+  name     = "example-rg"
   location = "West Europe"
 }
