@@ -5,7 +5,7 @@ provider "azurerm" {
 # Creating a Resource Group
 resource "azurerm_resource_group" "testRG" {
         name = "${var.resource_env}-RG-${var.azure_region_suffix}"
-        location = "var.azure_region"
+        location = "${var.azure_region}"
 }
 
 
