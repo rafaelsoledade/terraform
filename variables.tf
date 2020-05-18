@@ -1,13 +1,16 @@
 variable "azure_region" {
   description = "The Azure Region in which all resources in this example should be created."
   type    = string
-  default = "West Europe"
+}
+
+variable "azure_region_suffix" {
+  description = "The Azure Region suffix used for naming purposes."
+  type    = string
 }
 
 variable "resource_env" {
   description = "The environment prefix which should be used for all resources"
   type    = string
-  default = "DEV"
 }
 
 variable "resource_group_name" {
