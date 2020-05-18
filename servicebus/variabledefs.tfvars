@@ -1,2 +1,2 @@
 azure_region = "northeu"
-env = "dev"
+resource_env = "dev"
