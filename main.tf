@@ -12,8 +12,8 @@ resource "azurerm_resource_group" "testRG" {
 # Creating a Service Bus
 resource "azurerm_servicebus_namespace" "serviceBus" {
   name                = "var.servicebus_resource_name"
-  location            = azurerm_resource_group.var.resource_group_name.location
-  resource_group_name = azurerm_resource_group.var.resource_group_name.name
+  location            = azurerm_resource_group.${var.resource_group_name}.location
+  resource_group_name = azurerm_resource_group.${var.resource_group_name}.name
   sku                 = "Standard"
 
   tags = {
