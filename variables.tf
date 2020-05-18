@@ -1,7 +1,7 @@
 variable "azure_region" {
   description = "The Azure Region in which all resources in this example should be created."
   type    = string
-  default = "westus"
+  default = "West Europe"
 }
 
 variable "resource_env" {
