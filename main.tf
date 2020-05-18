@@ -4,14 +4,14 @@ provider "azurerm" {
 
 # Creating a Resource Group
 resource "azurerm_resource_group" "testRG" {
-        name = "var.resource_group_name"
+        name = "${var.resource_env}-RG-${var.azure_region}"
         location = "var.azure_region"
 }
 
 
 # Creating a Service Bus
-resource "azurerm_servicebus_namespace" "serviceBusTest" {
-  name                = "var.servicebus_resource_name"
+resource "azurerm_servicebus_namespace" "testSB" {
+  name                = "${var.resource_env}-SB-${var.azure_region}"
   location            = azurerm_resource_group.testRG.location
   resource_group_name = azurerm_resource_group.testRG.name
   sku                 = "Standard"
@@ -23,10 +23,10 @@ resource "azurerm_servicebus_namespace" "serviceBusTest" {
 
 
 # Creating Topic (e.g. naming convention DEV-sbt-fpcommission-northeu)
-resource "azurerm_servicebus_topic" "testTopic" {
+resource "azurerm_servicebus_topic" "testSBT" {
   name                = "${var.resource_env}-sbt-fpcommission-${var.azure_region}"
   resource_group_name = azurerm_resource_group.testRG.name
-  namespace_name      = azurerm_servicebus_namespace.serviceBusTest.name
+  namespace_name      = azurerm_servicebus_namespace.testSB.name
   enable_partitioning = true
 }
 
@@ -35,7 +35,7 @@ resource "azurerm_servicebus_topic" "testTopic" {
 resource "azurerm_servicebus_subscription" "testSubs" {
   name                = "${var.resource_env}-subs-fpdebitcard-${var.azure_region}"
   resource_group_name = azurerm_resource_group.testRG.name
-  namespace_name      = azurerm_servicebus_namespace.serviceBusTest.name
-  topic_name          = azurerm_servicebus_topic.testTopic.name
+  namespace_name      = azurerm_servicebus_namespace.testSB.name
+  topic_name          = azurerm_servicebus_topic.testSBT.name
   max_delivery_count  = 1
 }
